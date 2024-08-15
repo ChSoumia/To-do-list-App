@@ -1,22 +1,3 @@
-// let nombre = " ";
-// nombre = prompt("¿Cuál es tu nombre?");
-// alert(nombre + ", Bienvenido a TO DO LIST APP :)");
-// const NOMBRE = document.getElementById("nombre");
-// NOMBRE.innerHTML = "Hola, " + value || "Hola, ";
-
-swal("¿Cuál es tu nombre? ", {
-  content: "input",
-}).then((value) => {
-  swal({
-    title: "Good job!",
-    text: `Hola,  ${value} Bienvenido a TO DO LIST APP`,
-    icon: "success",
-    button: "Empezamos!",
-  });
-  const NOMBRE = document.getElementById("nombre");
-  NOMBRE.innerHTML = "Hola, " + value || "Hola, ";
-});
-
 const fecha = document.getElementById("fecha");
 const input = document.getElementById("input");
 const btnEnter = document.getElementById("enter");
@@ -144,3 +125,34 @@ function cargarLista(DATA) {
     agregarTarea(i.nombre, i.id, i.realizado, i.eliminado);
   });
 }
+//Introduce nombre de forma interactiva:
+
+// const NOMBRE = document.getElementById("nombre");
+// let nombre = " ";
+// nombre = window.prompt("¿Cuál es tu nombre?");
+// alert(nombre.toUpperCase() + ", Bienvenido a TO DO LIST APP :)");
+// NOMBRE.innerHTML = "Hola, " + nombre;
+
+swal({
+  title: "¿Cuál es tu nombre? ",
+  content: {
+    element: "input",
+    attributes: {
+      placeholder: "Introduce tu nombre...",
+    },
+  },
+  icon: "info",
+}).then((value) => {
+  swal({
+    title: "Good job!",
+    text: `Hola,  ${value} Bienvenido a TO DO LIST APP`,
+    icon: "success",
+    button: "Empezamos!",
+  });
+  const NOMBRE = document.getElementById("nombre");
+  if (value) {
+    NOMBRE.innerHTML = "Hola, " + value;
+  } else {
+    NOMBRE.innerHTML = "Hola, Usuario";
+  }
+});
