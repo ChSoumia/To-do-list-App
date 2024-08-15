@@ -1,3 +1,22 @@
+// let nombre = " ";
+// nombre = prompt("¿Cuál es tu nombre?");
+// alert(nombre + ", Bienvenido a TO DO LIST APP :)");
+// const NOMBRE = document.getElementById("nombre");
+// NOMBRE.innerHTML = "Hola, " + value || "Hola, ";
+
+swal("¿Cuál es tu nombre? ", {
+  content: "input",
+}).then((value) => {
+  swal({
+    title: "Good job!",
+    text: `Hola,  ${value} Bienvenido a TO DO LIST APP`,
+    icon: "success",
+    button: "Empezamos!",
+  });
+  const NOMBRE = document.getElementById("nombre");
+  NOMBRE.innerHTML = "Hola, " + value || "Hola, ";
+});
+
 const fecha = document.getElementById("fecha");
 const input = document.getElementById("input");
 const btnEnter = document.getElementById("enter");
